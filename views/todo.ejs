@@ -12,6 +12,17 @@
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
     crossorigin="anonymous"
   />
+  <script>
+    function checkCompleted(val){ 
+      const elem = document.getElementById(val);
+      if(elem.checked){
+        document.getElementsByClassName(val)[0].style.textDecoration = "line-through";
+        document.getElementsByClassName(val)[0].style.textDecorationThickness = "1.5em";
+      }else{
+        document.getElementsByClassName(val)[0].style.textDecoration = "none";
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="todo-container">
@@ -24,7 +35,10 @@
       <ul class="todo-list">
         <% todoTasks.forEach(details => { %>
         <li class="todo-list-item">
-          <div class="todo-list-item-name"><%= details.content %></div>
+          <div class="todo-list-item-name">
+            <input type="checkbox" name="markCompleted" id="<%= details._id %>" onclick="checkCompleted(`<%= details._id %>`)">
+            <span class="<%= details._id %>"><%= details.content %></span>
+            </div>
           <a href="/edit/<%= details._id %>" class="edit">
             <span class="fas fa-edit"></span>
           </a>

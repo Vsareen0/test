@@ -20,10 +20,10 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, () => {
 
 app.set("view engine", "ejs");
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   TodoTask.find({}, (err, tasks) => {
     res.render("todo.ejs", { todoTasks: tasks });
-  }).maxTimeMS(20000);
+  })
 });
 
 app.post("/", async (req, res) => {
