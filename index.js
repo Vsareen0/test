@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 app.get("/", async (req, res) => {
   TodoTask.find({}, (err, tasks) => {
     res.render("todo.ejs", { todoTasks: tasks });
-  });
+  }).maxTimeMS(20000);
 });
 
 app.post("/", async (req, res) => {
