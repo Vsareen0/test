@@ -22,7 +22,6 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, () => {
 app.set("view engine", "ejs");
 
 app.get("/", timeout('5s'), (req, res) => {
-    req.setTimeout(50000);
   TodoTask.find({}, (err, tasks) => {
     res.render("todo.ejs", { todoTasks: tasks });
   })
