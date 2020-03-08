@@ -21,7 +21,6 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, () => {
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.render("todo.ejs");
     TodoTask.find({}, (err, tasks) => {
     res.render("todo.ejs", { todoTasks: tasks });
   });
