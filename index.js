@@ -14,14 +14,14 @@ mongoose.set("useFindAndModify", false);
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, () => {
   console.log("Connected to DB ");
-  const PORT = process.env.PORT || 8080; 
+  const PORT = process.env.PORT || 8080;
   app.listen(PORT, () => console.log(`Server is running at port : ${PORT}`));
 });
 
 app.set("view engine", "ejs");
 
 app.get("/", async (req, res) => {
-    await TodoTask.find({}, (err, tasks) => {
+  TodoTask.find({}, (err, tasks) => {
     res.render("todo.ejs", { todoTasks: tasks });
   });
 });
@@ -38,7 +38,9 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.route("/edit/:id").get((req, res) => {
+app
+  .route("/edit/:id")
+  .get((req, res) => {
     const id = req.params.id;
     TodoTask.find({}, (err, tasks) => {
       res.render("todoEdit.ejs", { todoTasks: tasks, idTask: id });
