@@ -1,23 +1,20 @@
 {
-  "name": "test",
+  "name": "todoapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Vsareen0/test.git"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Vsareen0/test/issues"
-  },
-  "homepage": "https://github.com/Vsareen0/test#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "mongoose": "^5.9.3"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.2"
   }
 }
