@@ -8,7 +8,6 @@ const TodoTask = require("./models/TodoTask");
 const dotenv = require("dotenv");
 dotenv.config();
 
-app.use(timeout('5s'));
 app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
@@ -22,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, () => {
 
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
+app.get("/", timeout('5s'), (req, res) => {
     req.setTimeout(50000);
   TodoTask.find({}, (err, tasks) => {
     res.render("todo.ejs", { todoTasks: tasks });
