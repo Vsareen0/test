@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const timeout = require('connect-timeout');
 
 const TodoTask = require("./models/TodoTask");
 
 const dotenv = require("dotenv");
 dotenv.config();
 
+app.use(timeout(120000));
 app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 

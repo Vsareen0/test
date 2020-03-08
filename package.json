@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "connect-timeout": "^1.9.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
