@@ -8,7 +8,7 @@ const TodoTask = require("./models/TodoTask");
 const dotenv = require("dotenv");
 dotenv.config();
 
-app.use(timeout(120000));
+app.use(timeout('5s'));
 app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
